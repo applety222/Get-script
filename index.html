@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScriptSqp</title>
+    <style>
+        /* 기존 CSS 생략 */
+        body {font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;text-align:center;margin:60px auto;max-width:600px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+        h1{font-size:2.5em;margin-bottom:10px;text-shadow:0 2px 4px rgba(0,0,0,.3)}
+        p{font-size:1.1em;margin:8px 0}
+        button{background:#ff4757;color:#fff;padding:14px 32px;border:none;border-radius:50px;cursor:pointer;font-size:18px;font-weight:bold;margin-top:25px;box-shadow:0 4px 15px rgba(255,71,87,.4);transition:all .3s ease}
+        button:hover{background:#ff3742;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,71,87,.5)}
+        button:active{transform:translateY(0)}
+        #noscript{color:#ffcccc}
+        .id-box{background:rgba(255,255,255,.2);padding:10px 20px;border-radius:30px;display:inline-block;margin:15px 0;font-family:monospace;font-size:1.1em;backdrop-filter:blur(5px)}
+        hr{border:none;height:1px;background:rgba(255,255,255,.3);margin:30px 0}
+        .footer{margin-top:40px;font-size:.9em;opacity:.8}
+    </style>
+</head>
+<body>
+
+    <div id="noscript">
+        <h1>ScriptSqp</h1>
+        <p>You need to enable JavaScript to run this app.</p>
+        <hr>
+    </div>
+
+    <div id="app" style="display: none;">
+        <h1>ScriptSqp</h1>
+        <div class="id-box" id="script-id">ID: Loading...</div>
+        <p>클릭하면 스크립트가 로드됩니다.</p>
+        <button id="get-script-btn">Get Script</button>
+        <div class="footer">Made with ❤️ for Roblox Executors</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const noscript = document.getElementById('noscript');
+            const app = document.getElementById('app');
+            const scriptIdEl = document.getElementById('script-id');
+            const btn = document.getElementById('get-script-btn');
+
+            noscript.style.display = 'none';
+            app.style.display = 'block';
+
+            const path = window.location.pathname;
+            const match = path.match(/\/v\/([a-zA-Z0-9]+)/);
+            const scriptId = match ? match[1] : 'unknown';
+            scriptIdEl.textContent = `ID: ${scriptId}`;
+
+            // ---- 수정된 부분 ----
+            const scriptUrl = 'https://loot-link.com/s?CC9lkInX';
+            // --------------------
+
+            btn.addEventListener('click', function () {
+                window.open(scriptUrl, '_blank');
+            });
+        });
+    </script>
+
+</body>
+</html>
